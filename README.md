@@ -1,4 +1,4 @@
-# LetsChat - Real-Time Messaging Application
+# 💬 LetsChat - Full-Stack Real-Time Chat Application
 
 <div align="center">
 
@@ -9,18 +9,20 @@
 [![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
 [![React](https://img.shields.io/badge/React-20232A?logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Socket.io](https://img.shields.io/badge/Socket.io-black?logo=socket.io&badgeColor=010101)](https://socket.io/)
+[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
 
-**A modern, feature-rich real-time chat application built with the MERN stack**
+**A modern, feature-rich real-time messaging platform built with the MERN stack**
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Documentation](#-documentation) • [Contributing](#-contributing)
+[Features](#-features) • [Screenshots](#-screenshots) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [API Docs](#-api-documentation)
 
 </div>
 
 ---
 
-## 📋 Table of Contents
+## 📖 Table of Contents
 
 - [Overview](#-overview)
+- [Screenshots](#-screenshots)
 - [Features](#-features)
 - [Tech Stack](#-tech-stack)
 - [Architecture](#-architecture)
@@ -31,7 +33,6 @@
   - [Running with Docker](#running-with-docker)
   - [Running Locally](#running-locally)
 - [API Documentation](#-api-documentation)
-- [Features Documentation](#-features-documentation)
 - [Project Structure](#-project-structure)
 - [Contributing](#-contributing)
 - [License](#-license)
@@ -40,186 +41,349 @@
 
 ## 🌟 Overview
 
-**LetsChat** is a full-stack real-time messaging application that provides a seamless chat experience with modern features. Built with scalability, security, and user experience in mind, it leverages cutting-edge technologies to deliver instant messaging, typing indicators, message management, and more.
+**LetsChat** is a modern, full-stack real-time chat application that delivers a seamless messaging experience with enterprise-level features. Built from the ground up with scalability, security, and user experience as core principles, it leverages cutting-edge web technologies to provide instant communication, real-time updates, and an intuitive interface.
 
-### Why LetsChat?
+### 🎯 Project Description
 
-- 🚀 **Real-time Communication**: Instant message delivery using WebSocket technology
-- 🎨 **Modern UI/UX**: Beautiful, responsive interface built with React and TailwindCSS
-- 🔒 **Secure**: JWT-based authentication and authorization
-- 📱 **Responsive**: Works seamlessly on desktop, tablet, and mobile devices
-- 🎯 **Feature-Rich**: Message editing, deletion, typing indicators, and more
-- 🐳 **Easy Deployment**: Fully containerized with Docker
+LetsChat is designed as a complete chat platform featuring:
+
+- **Real-Time Communication**: Powered by WebSocket technology (Socket.io) for instant message delivery with sub-100ms latency
+- **Modern Architecture**: Clean separation of concerns with RESTful API backend and React frontend
+- **Advanced Features**: Message editing, deletion, typing indicators, online presence, and real-time notifications
+- **Beautiful UI/UX**: 32 customizable themes with a responsive design that works seamlessly across all devices
+- **Production Ready**: Fully containerized with Docker, ready for deployment with Kubernetes manifests included
+- **Secure**: JWT-based authentication, password hashing with bcrypt, and protected routes
+- **Flexible Storage**: Optional Cloudinary integration for images, with base64 fallback
+
+### 💡 Why LetsChat?
+
+- ⚡ **Lightning Fast**: Real-time message delivery with WebSocket technology
+- 🎨 **Beautiful Design**: Modern, clean interface built with TailwindCSS and DaisyUI
+- 🔒 **Secure by Default**: JWT authentication, password hashing, and secure session management
+- 📱 **Fully Responsive**: Optimized for desktop, tablet, and mobile devices
+- 🚀 **Easy Deployment**: One-command Docker deployment with docker-compose
+- 🛠️ **Developer Friendly**: Clean code structure, well-documented, and easy to extend
+- 🌈 **Customizable**: 32 pre-built themes with easy theme switching
+- 🔌 **Scalable**: Built with microservices architecture ready for horizontal scaling
+
+---
+
+## 📸 Screenshots
+
+### 🔐 Login & Authentication
+
+<div align="center">
+  <img src="frontend/public/login.png" alt="Login Page" width="800"/>
+  <p><em>Secure authentication with email and password. Features include form validation, error handling, and persistent sessions.</em></p>
+</div>
+
+**Login Features:**
+- ✅ Secure JWT-based authentication
+- ✅ Password hashing with bcryptjs
+- ✅ Form validation with error messages
+- ✅ Persistent login sessions
+- ✅ Quick signup option
+- ✅ Responsive design
+
+---
+
+### 💬 Main Chat Interface
+
+<div align="center">
+  <img src="frontend/public/chat.png" alt="Chat Interface" width="800"/>
+  <p><em>Real-time messaging interface with typing indicators, online status, and message management features.</em></p>
+</div>
+
+**Chat Features Displayed:**
+- ✅ **Real-time messaging** - Instant message delivery via WebSocket
+- ✅ **Typing indicators** - See when users are typing with animated "typing..." indicator
+- ✅ **Message editing** - Edit sent messages with visual "(edited)" label
+- ✅ **Online status** - Real-time green dot indicators for online users
+- ✅ **User sidebar** - Browse and filter contacts with "Show online only" toggle
+- ✅ **Message timestamps** - Track when messages were sent
+- ✅ **Profile avatars** - Visual user identification in conversations
+- ✅ **Image sharing** - Send and receive images in chat
+- ✅ **Message actions** - Hover menu for edit/delete options
+- ✅ **Smooth scrolling** - Auto-scroll to latest messages
+
+---
+
+### 🎨 Theme Customization
+
+<div align="center">
+  <img src="frontend/public/settings.png" alt="Settings & Themes" width="800"/>
+  <p><em>Customize your chat experience with 32 beautiful DaisyUI themes. Live preview before applying.</em></p>
+</div>
+
+**Available Themes:**
+
+| Theme Category | Themes Available |
+|---------------|------------------|
+| **Light Themes** | Light, Cupcake, Bumblebee, Emerald, Corporate, Garden, Lofi, Pastel, Fantasy, Wireframe, Cmyk, Autumn, Lemonade, Winter |
+| **Dark Themes** | Dark, Synthwave, Retro, Cyberpunk, Valentine, Halloween, Forest, Aqua, Black, Luxury, Dracula, Business, Night, Coffee, Dim, Nord, Sunset |
+
+**Theme Features:**
+- ✅ 32 pre-built themes
+- ✅ Live preview with sample chat
+- ✅ One-click theme switching
+- ✅ Persistent theme selection
+- ✅ Instant UI updates
+
+---
+
+### 👤 User Profile Management
+
+<div align="center">
+  <img src="frontend/public/acess.png" alt="Profile Page" width="800"/>
+  <p><em>Manage your profile information with easy profile picture updates and account details.</em></p>
+</div>
+
+**Profile Features:**
+- ✅ **Profile Picture Upload** - Click camera icon to update your photo
+- ✅ **Full Name Management** - Edit your display name
+- ✅ **Email Display** - View your registered email
+- ✅ **Account Information** - See member since date and account status
+- ✅ **Instant Updates** - Changes reflect immediately in all chats
+- ✅ **Image Storage** - Cloudinary integration or base64 fallback
+
+**Supported Image Formats:**
+- JPEG/JPG, PNG, GIF, WEBP
 
 ---
 
 ## ✨ Features
 
-### 🔐 Authentication & Authorization
-- **User Registration**: Secure signup with email and password
-- **User Login**: JWT-based authentication
-- **Session Management**: Persistent login with secure cookies
-- **Protected Routes**: Route-level authorization
-- **Logout**: Secure session termination
+### 🔐 Authentication & Security
+
+- **User Registration** - Secure signup with email validation
+- **JWT Authentication** - Token-based secure authentication
+- **Password Security** - bcrypt hashing with salt rounds
+- **Session Management** - Persistent login with HTTP-only cookies
+- **Protected Routes** - Client and server-side route protection
+- **Secure Logout** - Proper session termination and token invalidation
 
 ### 💬 Real-Time Messaging
-- **Instant Messaging**: Send and receive messages in real-time using Socket.io
-- **Text Messages**: Send text-based messages
-- **Image Sharing**: Share images in conversations (Base64 or Cloudinary)
-- **Message History**: View complete conversation history
-- **Message Timestamps**: See when messages were sent
-- **Read Receipts**: Track message delivery status
 
-### ✏️ Message Management
-- **Edit Messages**: Edit your sent messages (within 24 hours)
-  - Inline editing with save/cancel options
-  - Visual indicator for edited messages
-  - Real-time updates for all participants
-- **Delete Messages**: Remove messages from conversations
+- **Instant Messaging** - Sub-100ms message delivery via Socket.io
+- **Text Messages** - Rich text messaging support
+- **Image Sharing** - Share images with Cloudinary or base64 storage
+- **Message History** - Complete conversation history retrieval
+- **Message Timestamps** - Precise send/receive time tracking
+- **Read Receipts** - Message delivery status tracking
+
+### ✏️ Advanced Message Management
+
+- **Edit Messages** - Edit sent messages within 24 hours
+  - Inline editing with save/cancel buttons
+  - Visual "(edited)" indicator on edited messages
+  - Real-time updates across all connected clients
+  - Edit time limit enforcement (24 hours)
+  
+- **Delete Messages** - Remove messages from conversations
   - Confirmation dialog before deletion
   - Real-time deletion for all participants
   - Permanent removal from database
-- **Message Actions**: Hover over messages to access edit/delete options
+  
+- **Message Actions Menu** - Hover-activated three-dot menu for message options
 
-### ⌨️ Typing Indicators
-- **Real-Time Typing Status**: See when someone is typing
-- **Visual Feedback**: Animated "typing..." indicator
-- **Auto-Hide**: Automatically disappears after 3 seconds of inactivity
-- **Multi-User Support**: Works in one-on-one conversations
+### ⌨️ Real-Time Typing Indicators
 
-### 👤 User Profile Management
-- **Profile Picture Upload**: Upload and update profile pictures
-  - Support for Cloudinary (optional)
-  - Base64 fallback for local storage
-  - Instant preview before upload
-- **Profile Information**: View and manage user details
-  - Full name
-  - Email address
-  - Account creation date
-  - Account status
-- **Avatar Display**: Profile pictures shown in conversations
+- **Live Typing Status** - See when someone is typing in real-time
+- **Visual Feedback** - Animated "typing..." bubble indicator
+- **Auto-Hide** - Automatically disappears after 3 seconds of inactivity
+- **Smart Detection** - Debounced to prevent excessive socket emissions
+- **Multi-User Ready** - Supports tracking multiple typing users
 
 ### 👥 User Management
-- **User List**: View all registered users
-- **Online Status**: Real-time online/offline indicators
-- **Filter Online Users**: Show only online users
-- **User Search**: Find users quickly (coming soon)
+
+- **User List** - View all registered users in sidebar
+- **Online Status** - Real-time green dot indicators for online users
+- **Offline Status** - Gray indicators for offline users
+- **Filter Online Users** - Toggle to show only online users
+- **User Profiles** - Click to view user details and start chat
+- **Avatar Display** - Profile pictures in sidebar and chat
 
 ### 🎨 UI/UX Features
-- **Modern Design**: Clean, intuitive interface
-- **Dark Theme**: Eye-friendly dark mode
-- **Multiple Themes**: 32 DaisyUI themes available
-- **Responsive Layout**: Adapts to all screen sizes
-- **Smooth Animations**: Polished transitions and effects
-- **Loading States**: Visual feedback during operations
-- **Toast Notifications**: Success/error messages
 
-### 🔔 Notifications
-- **In-App Notifications**: Toast messages for events
-- **Success Messages**: Confirmation of successful actions
-- **Error Handling**: User-friendly error messages
+- **Modern Design** - Clean, professional interface with attention to detail
+- **Dark Mode** - Eye-friendly dark theme by default
+- **32 Themes** - Extensive theme library from DaisyUI
+- **Fully Responsive** - Seamless experience on mobile, tablet, and desktop
+- **Smooth Animations** - Polished transitions and micro-interactions
+- **Loading States** - Skeleton loaders for better perceived performance
+- **Toast Notifications** - Non-intrusive success/error messages
+- **Empty States** - Helpful placeholders when no content
 
-### 🌐 Real-Time Features
-- **WebSocket Connection**: Persistent connection for instant updates
-- **Online Users**: Live list of online users
-- **Message Delivery**: Instant message delivery
-- **Typing Indicators**: Real-time typing status
-- **Message Updates**: Live message edits and deletions
+### 🔔 Notifications System
+
+- **In-App Notifications** - React Hot Toast for elegant notifications
+- **Success Messages** - Confirmation of successful actions
+- **Error Handling** - User-friendly error messages
+- **Real-Time Alerts** - Instant notifications for new messages
+
+### 🌐 WebSocket Features
+
+- **Persistent Connection** - Maintained WebSocket connection for real-time updates
+- **Online Users Tracking** - Live list of connected users
+- **Message Events** - Instant message, edit, and delete notifications
+- **Typing Events** - Real-time typing status broadcasts
+- **Connection Management** - Automatic reconnection on disconnect
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
-- **React 18**: Modern UI library with hooks
-- **React Router DOM**: Client-side routing
-- **Zustand**: Lightweight state management
-- **Socket.io Client**: Real-time WebSocket client
-- **Axios**: HTTP client for API requests
-- **TailwindCSS**: Utility-first CSS framework
-- **DaisyUI**: Component library for Tailwind
-- **Lucide React**: Beautiful icon library
-- **React Hot Toast**: Elegant toast notifications
-- **Vite**: Fast build tool and dev server
+### Frontend Technologies
 
-### Backend
-- **Node.js**: JavaScript runtime
-- **Express.js**: Web application framework
-- **MongoDB**: NoSQL database
-- **Mongoose**: MongoDB object modeling
-- **Socket.io**: Real-time WebSocket server
-- **JWT**: JSON Web Tokens for authentication
-- **bcryptjs**: Password hashing
-- **Cookie Parser**: Cookie handling middleware
-- **CORS**: Cross-Origin Resource Sharing
-- **dotenv**: Environment variable management
-- **Cloudinary**: Image hosting (optional)
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| **React** | 18.3.1 | UI library with hooks and modern patterns |
+| **React Router DOM** | 6.28.0 | Client-side routing and navigation |
+| **Zustand** | 5.0.1 | Lightweight state management (< 1KB) |
+| **Socket.io Client** | 4.8.1 | Real-time WebSocket client |
+| **Axios** | 1.7.7 | Promise-based HTTP client |
+| **TailwindCSS** | 3.4.15 | Utility-first CSS framework |
+| **DaisyUI** | 4.12.14 | Beautiful component library for Tailwind |
+| **Lucide React** | 0.459.0 | Modern icon library (1000+ icons) |
+| **React Hot Toast** | 2.4.1 | Elegant toast notifications |
+| **Vite** | 5.4.10 | Lightning-fast build tool and dev server |
+
+### Backend Technologies
+
+| Technology | Version | Purpose |
+|-----------|---------|---------|
+| **Node.js** | 18+ | JavaScript runtime environment |
+| **Express.js** | 4.21.1 | Fast, minimalist web framework |
+| **MongoDB** | 6+ | NoSQL document database |
+| **Mongoose** | 8.8.1 | Elegant MongoDB object modeling |
+| **Socket.io** | 4.8.1 | Real-time bidirectional event-based communication |
+| **JWT** | 9.0.2 | JSON Web Tokens for authentication |
+| **bcryptjs** | 2.4.3 | Password hashing library |
+| **Cookie Parser** | 1.4.7 | Parse HTTP cookies |
+| **CORS** | 2.8.5 | Cross-Origin Resource Sharing middleware |
+| **dotenv** | 16.4.5 | Environment variable management |
+| **Cloudinary** | 2.5.1 | Cloud-based image storage (optional) |
 
 ### DevOps & Tools
-- **Docker**: Containerization
-- **Docker Compose**: Multi-container orchestration
-- **Nginx**: Web server and reverse proxy
-- **Git**: Version control
-- **ESLint**: Code linting
-- **Nodemon**: Development auto-reload
+
+- **Docker** - Container platform for consistent deployment
+- **Docker Compose** - Multi-container orchestration
+- **Nginx** - High-performance web server and reverse proxy
+- **Kubernetes** - Container orchestration (manifests included)
+- **Git** - Version control system
+- **ESLint** - Code linting and quality assurance
+- **Nodemon** - Auto-restart development server
 
 ---
 
 ## 🏗️ Architecture
 
-### System Architecture
+### System Architecture Diagram
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                         Client Layer                         │
-│  ┌─────────────┐  ┌──────────────┐  ┌──────────────────┐  │
-│  │   React UI  │  │  Zustand     │  │  Socket.io       │  │
-│  │   Components│  │  State Mgmt  │  │  Client          │  │
-│  └─────────────┘  └──────────────┘  └──────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ HTTP/WebSocket
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│                        Server Layer                          │
-│  ┌─────────────┐  ┌──────────────┐  ┌──────────────────┐  │
-│  │   Express   │  │  Socket.io   │  │  JWT Auth        │  │
-│  │   REST API  │  │  Server      │  │  Middleware      │  │
-│  └─────────────┘  └──────────────┘  └──────────────────┘  │
-└─────────────────────────────────────────────────────────────┘
-                            │
-                            │ Mongoose ODM
-                            ▼
-┌─────────────────────────────────────────────────────────────┐
-│                      Database Layer                          │
-│  ┌─────────────────────────────────────────────────────┐   │
-│  │                    MongoDB                           │   │
-│  │  ┌──────────┐  ┌──────────┐  ┌──────────────────┐ │   │
-│  │  │  Users   │  │ Messages │  │  Sessions        │ │   │
-│  │  └──────────┘  └──────────┘  └──────────────────┘ │   │
-│  └─────────────────────────────────────────────────────┘   │
-└─────────────────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────┐
+│                         CLIENT LAYER                              │
+│  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐ │
+│  │   React UI     │  │   Zustand      │  │   Socket.io        │ │
+│  │   Components   │◄─┤   State Store  │◄─┤   Client           │ │
+│  │   (JSX)        │  │   (Global)     │  │   (WebSocket)      │ │
+│  └────────────────┘  └────────────────┘  └────────────────────┘ │
+└──────────────────────────────────────────────────────────────────┘
+                             │
+                             │ HTTP/HTTPS + WebSocket
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                         SERVER LAYER                              │
+│  ┌────────────────┐  ┌────────────────┐  ┌────────────────────┐ │
+│  │   Express.js   │  │   Socket.io    │  │   JWT Auth         │ │
+│  │   REST API     │◄─┤   Server       │◄─┤   Middleware       │ │
+│  │   (Routes)     │  │   (Events)     │  │   (Protected)      │ │
+│  └────────────────┘  └────────────────┘  └────────────────────┘ │
+└──────────────────────────────────────────────────────────────────┘
+                             │
+                             │ Mongoose ODM
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                      DATABASE LAYER                               │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │                     MongoDB (NoSQL)                       │   │
+│  │  ┌──────────────┐  ┌──────────────┐  ┌───────────────┐  │   │
+│  │  │    Users     │  │   Messages   │  │   Sessions    │  │   │
+│  │  │  Collection  │  │  Collection  │  │   (Cookies)   │  │   │
+│  │  └──────────────┘  └──────────────┘  └───────────────┘  │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────┘
+                             │
+                             │ (Optional)
+                             ▼
+┌──────────────────────────────────────────────────────────────────┐
+│                      EXTERNAL SERVICES                            │
+│  ┌──────────────────────────────────────────────────────────┐   │
+│  │              Cloudinary (Image Storage)                   │   │
+│  │                  CDN & Optimization                        │   │
+│  └──────────────────────────────────────────────────────────┘   │
+└──────────────────────────────────────────────────────────────────┘
 ```
 
-### Data Flow
+### Data Flow Patterns
 
-1. **Authentication Flow**:
-   ```
-   Client → Login Request → Server → Verify Credentials → 
-   Generate JWT → Send Cookie → Client Stores Token
-   ```
+#### 1️⃣ Authentication Flow
+```
+User Input → Frontend Validation → API Request → Backend Validation
+→ Password Hash Check → Generate JWT → Set HTTP-Only Cookie
+→ Return User Data → Update Client State → Redirect to Chat
+```
 
-2. **Messaging Flow**:
-   ```
-   Client → Send Message → Server → Save to DB → 
-   Emit Socket Event → Receiver Client → Update UI
-   ```
+#### 2️⃣ Real-Time Messaging Flow
+```
+User Types Message → Frontend Captures → HTTP POST to API
+→ Save to MongoDB → Emit Socket Event → Server Broadcast
+→ Receiver Socket Listens → Update UI Instantly → Toast Notification
+```
 
-3. **Real-Time Updates**:
-   ```
-   User Action → Socket Event → Server Broadcast → 
-   Connected Clients → Update UI
-   ```
+#### 3️⃣ Message Edit Flow
+```
+User Clicks Edit → Frontend Edit Mode → HTTP PUT Request
+→ Validate Ownership → Check 24h Limit → Update Database
+→ Emit Socket "messageEdited" → All Clients Update → Show (edited) Label
+```
+
+#### 4️⃣ Typing Indicator Flow
+```
+User Starts Typing → Debounce Input → Emit "typing" Socket Event
+→ Server Broadcast to Room → Receiver Gets Event
+→ Show "typing..." Bubble → Auto-hide After 3s
+```
+
+### Database Schema
+
+#### User Model
+```javascript
+{
+  _id: ObjectId,
+  email: String (unique, required),
+  fullName: String (required),
+  password: String (hashed, required, min: 6),
+  profilePic: String (URL or base64),
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+#### Message Model
+```javascript
+{
+  _id: ObjectId,
+  senderId: ObjectId (ref: User),
+  receiverId: ObjectId (ref: User),
+  text: String,
+  image: String (URL or base64),
+  edited: Boolean (default: false),
+  editedAt: Date,
+  createdAt: Date,
+  updatedAt: Date
+}
+```
 
 ---
 
@@ -227,154 +391,198 @@
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed:
+Ensure you have the following installed on your system:
 
-- **Node.js** (v18.0.0 or higher)
-- **npm** (v9.0.0 or higher)
-- **MongoDB** (v6.0 or higher) or MongoDB Atlas account
-- **Docker** (optional, for containerized deployment)
-- **Docker Compose** (optional, for multi-container setup)
-- **Git** (for cloning the repository)
+| Software | Version | Purpose |
+|----------|---------|---------|
+| **Node.js** | ≥18.0.0 | JavaScript runtime |
+| **npm** | ≥9.0.0 | Package manager |
+| **MongoDB** | ≥6.0 | Database (or MongoDB Atlas) |
+| **Docker** | Latest | Container platform (optional) |
+| **Docker Compose** | Latest | Container orchestration (optional) |
+| **Git** | Latest | Version control |
 
 ### Installation
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/LetsChat.git
-   cd LetsChat
-   ```
+#### 1. Clone the Repository
 
-2. **Install dependencies**:
+```bash
+git clone https://github.com/yourusername/LetsChat-FullStack-ChatApp.git
+cd LetsChat-FullStack-ChatApp
+```
 
-   **Backend:**
-   ```bash
-   cd backend
-   npm install
-   ```
+#### 2. Install Backend Dependencies
 
-   **Frontend:**
-   ```bash
-   cd frontend
-   npm install
-   ```
+```bash
+cd backend
+npm install
+```
+
+#### 3. Install Frontend Dependencies
+
+```bash
+cd ../frontend
+npm install
+```
 
 ### Environment Configuration
 
-Create a `.env` file in the root directory:
+Create a `.env` file in the **root directory** with the following variables:
 
 ```env
-# Database Configuration
+# ============================================
+# DATABASE CONFIGURATION
+# ============================================
+# For Docker deployment (recommended):
 MONGODB_URI=mongodb://root:admin@mongo:27017/chatApp?authSource=admin&retryWrites=true&w=majority
 
-# For local development without Docker:
+# For local development (without Docker):
 # MONGODB_URI=mongodb://localhost:27017/chatApp
 
-# JWT Configuration
-JWT_SECRET=your_super_secret_jwt_key_here_change_this_in_production
+# For MongoDB Atlas (cloud):
+# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/chatApp?retryWrites=true&w=majority
 
-# Server Configuration
+# ============================================
+# JWT CONFIGURATION
+# ============================================
+# IMPORTANT: Change this in production!
+# Generate a secure secret with: openssl rand -base64 32
+JWT_SECRET=your_super_secret_jwt_key_change_this_in_production
+
+# ============================================
+# SERVER CONFIGURATION
+# ============================================
 PORT=5001
 NODE_ENV=development
 
-# Cloudinary Configuration (Optional - for image hosting)
-# If not provided, images will be stored as base64 in database
-# CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-# CLOUDINARY_API_KEY=your_cloudinary_api_key
-# CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+# ============================================
+# CLOUDINARY CONFIGURATION (OPTIONAL)
+# ============================================
+# Leave commented out to use base64 image storage
+# Uncomment and fill these values to enable Cloudinary
+
+# CLOUDINARY_CLOUD_NAME=your_cloud_name
+# CLOUDINARY_API_KEY=your_api_key
+# CLOUDINARY_API_SECRET=your_api_secret
 ```
 
-**Important Notes:**
-- Replace `your_super_secret_jwt_key_here_change_this_in_production` with a strong, random string
-- For production, use a secure JWT secret (you can generate one using: `openssl rand -base64 32`)
-- Cloudinary is optional - the app works without it using base64 image storage
+**Security Notes:**
+- 🔒 Never commit your `.env` file to version control
+- 🔐 Always use a strong, unique JWT secret in production
+- 🛡️ Rotate secrets regularly for enhanced security
 
 ### Running with Docker
 
-**Production Mode (Port 8080):**
+#### 🐳 Production Mode (Port 8080)
 
-1. **Build and start all containers**:
-   ```bash
-   docker compose up -d --build
-   ```
+**Start the application:**
+```bash
+docker compose up -d --build
+```
 
-2. **Access the application**:
-   - Frontend: http://localhost:8080
-   - Backend API: http://localhost:5001
-   - MongoDB: localhost:27017
+**Access the application:**
+- 🌐 Frontend: http://localhost:8080
+- 🔌 Backend API: http://localhost:5001
+- 🗄️ MongoDB: localhost:27017
 
-3. **View logs**:
-   ```bash
-   docker compose logs -f
-   ```
+**View logs:**
+```bash
+docker compose logs -f
+```
 
-4. **Stop containers**:
-   ```bash
-   docker compose down
-   ```
+**Stop the application:**
+```bash
+docker compose down
+```
 
-**Development Mode (Port 5173 with Hot Reload):**
+**Remove volumes (reset database):**
+```bash
+docker compose down -v
+```
 
-1. **Build and start development containers**:
-   ```bash
-   docker compose -f docker-compose.dev.yml up -d --build
-   ```
+#### 🔧 Development Mode (Port 5173 with Hot Reload)
 
-2. **Access the application**:
-   - Frontend: http://localhost:5173 (with hot reload)
-   - Backend API: http://localhost:5001
-   - MongoDB: localhost:27017
+**Start development environment:**
+```bash
+docker compose -f docker-compose.dev.yml up -d --build
+```
 
-3. **View logs**:
-   ```bash
-   docker compose -f docker-compose.dev.yml logs -f
-   ```
+**Access the application:**
+- 🌐 Frontend: http://localhost:5173 (with Vite hot reload)
+- 🔌 Backend API: http://localhost:5001 (with Nodemon auto-restart)
+- 🗄️ MongoDB: localhost:27017
 
-### Running Locally
+**View logs:**
+```bash
+docker compose -f docker-compose.dev.yml logs -f
+```
 
-**Backend:**
+**Stop development environment:**
+```bash
+docker compose -f docker-compose.dev.yml down
+```
 
-1. **Start MongoDB** (if not using Docker):
-   ```bash
-   mongod
-   ```
+### Running Locally (Without Docker)
 
-2. **Start the backend server**:
-   ```bash
-   cd backend
-   npm run dev  # Development mode with nodemon
-   # or
-   npm start    # Production mode
-   ```
+#### Step 1: Start MongoDB
 
-   The backend will run on http://localhost:5001
+**Option A - Local MongoDB:**
+```bash
+mongod
+```
 
-**Frontend:**
+**Option B - MongoDB with Docker:**
+```bash
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+```
 
-1. **Start the frontend development server**:
-   ```bash
-   cd frontend
-   npm run dev
-   ```
+**Option C - MongoDB Atlas:**
+Use the cloud connection string in your `.env` file
 
-   The frontend will run on http://localhost:5173
+#### Step 2: Start Backend Server
 
-2. **Build for production**:
-   ```bash
-   npm run build
-   npm run preview
-   ```
+```bash
+cd backend
+npm run dev    # Development mode with Nodemon
+# or
+npm start      # Production mode
+```
+
+Backend will run on **http://localhost:5001**
+
+#### Step 3: Start Frontend Development Server
+
+```bash
+cd frontend
+npm run dev    # Vite development server
+```
+
+Frontend will run on **http://localhost:5173**
+
+#### Step 4: Build for Production
+
+```bash
+cd frontend
+npm run build     # Creates optimized production build in dist/
+npm run preview   # Preview production build locally
+```
 
 ---
 
 ## 📚 API Documentation
 
-### Authentication Endpoints
+### Base URL
+```
+http://localhost:5001/api
+```
 
-#### POST `/api/auth/signup`
-Register a new user.
+### 🔐 Authentication Endpoints
 
-**Request Body:**
-```json
+#### Register New User
+```http
+POST /api/auth/signup
+Content-Type: application/json
+
 {
   "fullName": "John Doe",
   "email": "john@example.com",
@@ -382,7 +590,7 @@ Register a new user.
 }
 ```
 
-**Response:**
+**Response (201 Created):**
 ```json
 {
   "_id": "user_id",
@@ -392,185 +600,224 @@ Register a new user.
 }
 ```
 
-#### POST `/api/auth/login`
-Login an existing user.
+---
 
-**Request Body:**
-```json
+#### Login User
+```http
+POST /api/auth/login
+Content-Type: application/json
+
 {
   "email": "john@example.com",
   "password": "securePassword123"
 }
 ```
 
-**Response:**
+**Response (200 OK):**
 ```json
 {
   "_id": "user_id",
   "fullName": "John Doe",
   "email": "john@example.com",
-  "profilePic": "profile_pic_url"
+  "profilePic": "https://cloudinary.com/profile.jpg"
 }
 ```
 
-#### POST `/api/auth/logout`
-Logout the current user.
+---
 
-**Response:**
+#### Logout User
+```http
+POST /api/auth/logout
+Cookie: jwt=token_value
+```
+
+**Response (200 OK):**
 ```json
 {
   "message": "Logged out successfully"
 }
 ```
 
-#### GET `/api/auth/check`
-Check authentication status.
+---
 
-**Headers:** `Cookie: jwt=token`
+#### Check Authentication Status
+```http
+GET /api/auth/check
+Cookie: jwt=token_value
+```
 
-**Response:**
+**Response (200 OK):**
 ```json
 {
   "_id": "user_id",
   "fullName": "John Doe",
   "email": "john@example.com",
-  "profilePic": "profile_pic_url"
+  "profilePic": "https://cloudinary.com/profile.jpg"
 }
 ```
 
-#### PUT `/api/auth/update-profile`
-Update user profile picture.
+---
 
-**Headers:** `Cookie: jwt=token`
+#### Update Profile Picture
+```http
+PUT /api/auth/update-profile
+Cookie: jwt=token_value
+Content-Type: application/json
 
-**Request Body:**
-```json
 {
-  "profilePic": "base64_image_or_url"
+  "profilePic": "data:image/png;base64,iVBORw0KG..."
 }
 ```
 
-**Response:**
+**Response (200 OK):**
 ```json
 {
   "_id": "user_id",
   "fullName": "John Doe",
   "email": "john@example.com",
-  "profilePic": "new_profile_pic_url"
+  "profilePic": "https://cloudinary.com/new-profile.jpg"
 }
 ```
 
-### Message Endpoints
+---
 
-#### GET `/api/messages/users`
-Get all users for sidebar.
+### 💬 Message Endpoints
 
-**Headers:** `Cookie: jwt=token`
+#### Get All Users (For Sidebar)
+```http
+GET /api/messages/users
+Cookie: jwt=token_value
+```
 
-**Response:**
+**Response (200 OK):**
 ```json
 [
   {
     "_id": "user_id",
     "fullName": "Jane Doe",
     "email": "jane@example.com",
-    "profilePic": "profile_pic_url"
+    "profilePic": "https://cloudinary.com/profile.jpg"
   }
 ]
 ```
 
-#### GET `/api/messages/:id`
-Get messages with a specific user.
+---
 
-**Headers:** `Cookie: jwt=token`
+#### Get Messages with Specific User
+```http
+GET /api/messages/:userId
+Cookie: jwt=token_value
+```
 
-**Response:**
+**Response (200 OK):**
 ```json
 [
   {
     "_id": "message_id",
     "senderId": "sender_id",
     "receiverId": "receiver_id",
-    "text": "Hello!",
-    "image": "image_url",
+    "text": "Hello! How are you?",
+    "image": null,
     "edited": false,
-    "createdAt": "2024-01-01T00:00:00.000Z",
-    "updatedAt": "2024-01-01T00:00:00.000Z"
+    "createdAt": "2024-01-01T12:00:00.000Z",
+    "updatedAt": "2024-01-01T12:00:00.000Z"
   }
 ]
 ```
 
-#### POST `/api/messages/send/:id`
-Send a message to a user.
+---
 
-**Headers:** `Cookie: jwt=token`
+#### Send Message
+```http
+POST /api/messages/send/:userId
+Cookie: jwt=token_value
+Content-Type: application/json
 
-**Request Body:**
-```json
 {
   "text": "Hello, how are you?",
-  "image": "base64_image_or_url" // optional
+  "image": "data:image/png;base64,iVBORw0KG..."  // optional
 }
 ```
 
-**Response:**
+**Response (201 Created):**
 ```json
 {
   "_id": "message_id",
   "senderId": "sender_id",
   "receiverId": "receiver_id",
   "text": "Hello, how are you?",
-  "image": "image_url",
-  "createdAt": "2024-01-01T00:00:00.000Z"
+  "image": "https://cloudinary.com/image.jpg",
+  "edited": false,
+  "createdAt": "2024-01-01T12:00:00.000Z"
 }
 ```
 
-#### PUT `/api/messages/edit/:id`
-Edit a message (within 24 hours).
+---
 
-**Headers:** `Cookie: jwt=token`
+#### Edit Message
+```http
+PUT /api/messages/edit/:messageId
+Cookie: jwt=token_value
+Content-Type: application/json
 
-**Request Body:**
-```json
 {
   "text": "Updated message text"
 }
 ```
 
-**Response:**
+**Response (200 OK):**
 ```json
 {
   "_id": "message_id",
   "senderId": "sender_id",
   "receiverId": "receiver_id",
   "text": "Updated message text",
+  "image": null,
   "edited": true,
-  "editedAt": "2024-01-01T01:00:00.000Z"
+  "editedAt": "2024-01-01T13:00:00.000Z",
+  "createdAt": "2024-01-01T12:00:00.000Z",
+  "updatedAt": "2024-01-01T13:00:00.000Z"
 }
 ```
 
-#### DELETE `/api/messages/delete/:id`
-Delete a message.
+**Error Responses:**
+- `404 Not Found` - Message not found
+- `403 Forbidden` - Can only edit your own messages
+- `400 Bad Request` - Message is too old to edit (> 24 hours)
 
-**Headers:** `Cookie: jwt=token`
+---
 
-**Response:**
+#### Delete Message
+```http
+DELETE /api/messages/delete/:messageId
+Cookie: jwt=token_value
+```
+
+**Response (200 OK):**
 ```json
 {
   "message": "Message deleted successfully"
 }
 ```
 
-### Health Check
+**Error Responses:**
+- `404 Not Found` - Message not found
+- `403 Forbidden` - Can only delete your own messages
 
-#### GET `/health`
-Check server health status.
+---
 
-**Response:**
+### 🏥 Health Check
+
+#### Server Health Status
+```http
+GET /health
+```
+
+**Response (200 OK):**
 ```json
 {
   "status": "healthy",
-  "timestamp": "2024-01-01T00:00:00.000Z",
+  "timestamp": "2024-01-01T12:00:00.000Z",
   "database": "connected",
   "environment": "development"
 }
@@ -578,247 +825,296 @@ Check server health status.
 
 ---
 
-## 🎯 Features Documentation
+### 🔌 WebSocket Events
 
-### Message Editing
+#### Client → Server Events
 
-**How it works:**
-1. Hover over your sent messages
-2. Click the three-dot menu (⋮) that appears
-3. Select "Edit"
-4. Modify the message text inline
-5. Click the checkmark to save or X to cancel
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `typing` | `{ chatId: userId, userId: currentUserId }` | User started typing |
+| `stopTyping` | `{ chatId: userId, userId: currentUserId }` | User stopped typing |
 
-**Limitations:**
-- Only your own messages can be edited
-- Messages can only be edited within 24 hours of sending
-- Edited messages show an "(edited)" indicator
-- Real-time updates for all participants
+#### Server → Client Events
 
-### Message Deletion
-
-**How it works:**
-1. Hover over your sent messages
-2. Click the three-dot menu (⋮)
-3. Select "Delete"
-4. Confirm the deletion in the dialog
-5. Message is permanently removed for all participants
-
-**Limitations:**
-- Only your own messages can be deleted
-- Deletion is permanent and cannot be undone
-- Real-time updates for all participants
-
-### Typing Indicators
-
-**How it works:**
-1. Start typing in the message input
-2. The other user sees "typing..." indicator
-3. Indicator automatically disappears after 3 seconds of inactivity
-4. Indicator disappears when message is sent
-
-**Technical Details:**
-- Uses Socket.io events: `typing` and `stopTyping`
-- Debounced to prevent excessive socket emissions
-- Only shown in active conversation
-
-### Profile Picture Upload
-
-**How it works:**
-1. Go to Profile page
-2. Click the camera icon on your avatar
-3. Select an image from your device
-4. Image is automatically uploaded and displayed
-
-**Supported Formats:**
-- JPEG/JPG
-- PNG
-- GIF
-- WEBP
-
-**Storage Options:**
-- **Cloudinary**: If configured, images are uploaded to Cloudinary
-- **Base64**: If Cloudinary is not configured, images are stored as base64 in database
-
-### Online Status
-
-**How it works:**
-- Real-time tracking of user online/offline status
-- Green dot indicator for online users
-- Updates automatically when users connect/disconnect
-- Filter to show only online users
+| Event | Payload | Description |
+|-------|---------|-------------|
+| `newMessage` | `Message object` | New message received |
+| `messageEdited` | `Message object` | Message was edited |
+| `messageDeleted` | `messageId` | Message was deleted |
+| `userTyping` | `{ chatId, userId }` | Someone is typing |
+| `userStopTyping` | `{ chatId, userId }` | Someone stopped typing |
+| `getOnlineUsers` | `Array of user IDs` | Updated list of online users |
 
 ---
 
 ## 📁 Project Structure
 
 ```
-LetsChat/
-├── backend/
+LetsChat-FullStack-ChatApp/
+│
+├── backend/                          # Backend server application
 │   ├── src/
-│   │   ├── controllers/
-│   │   │   ├── auth.controller.js      # Authentication logic
-│   │   │   └── message.controller.js   # Message handling
-│   │   ├── lib/
-│   │   │   ├── cloudinary.js           # Cloudinary configuration
-│   │   │   ├── db.js                   # Database connection
-│   │   │   ├── socket.js               # Socket.io setup
-│   │   │   └── utils.js                # Utility functions
-│   │   ├── middleware/
-│   │   │   └── auth.middleware.js      # JWT authentication
-│   │   ├── models/
-│   │   │   ├── message.model.js        # Message schema
-│   │   │   └── user.model.js           # User schema
-│   │   ├── routes/
-│   │   │   ├── auth.route.js           # Auth routes
-│   │   │   ├── health.route.js         # Health check
-│   │   │   └── message.route.js        # Message routes
-│   │   └── index.js                    # Server entry point
-│   ├── Dockerfile                      # Backend Docker config
-│   ├── package.json                    # Backend dependencies
-│   └── .dockerignore
+│   │   ├── controllers/              # Route controllers
+│   │   │   ├── auth.controller.js    # Authentication logic
+│   │   │   └── message.controller.js # Message handling (CRUD + Socket)
+│   │   │
+│   │   ├── lib/                      # Utility libraries
+│   │   │   ├── cloudinary.js         # Cloudinary configuration
+│   │   │   ├── db.js                 # MongoDB connection
+│   │   │   ├── socket.js             # Socket.io server setup
+│   │   │   └── utils.js              # Helper functions
+│   │   │
+│   │   ├── middleware/               # Express middlewares
+│   │   │   └── auth.middleware.js    # JWT authentication middleware
+│   │   │
+│   │   ├── models/                   # Mongoose models
+│   │   │   ├── message.model.js      # Message schema
+│   │   │   └── user.model.js         # User schema
+│   │   │
+│   │   ├── routes/                   # API routes
+│   │   │   ├── auth.route.js         # Authentication routes
+│   │   │   ├── health.route.js       # Health check endpoint
+│   │   │   └── message.route.js      # Message routes
+│   │   │
+│   │   ├── seeds/                    # Database seeders (optional)
+│   │   └── index.js                  # Server entry point
+│   │
+│   ├── Dockerfile                    # Production Docker config
+│   ├── package.json                  # Backend dependencies
+│   └── .dockerignore                 # Docker ignore rules
 │
-├── frontend/
-│   ├── public/
-│   │   ├── avatar.png                  # Default avatar
-│   │   └── ...                         # Other assets
+├── frontend/                         # Frontend React application
+│   ├── public/                       # Static assets
+│   │   ├── acess.png                 # Profile page screenshot
+│   │   ├── avatar.png                # Default avatar
+│   │   ├── chat.png                  # Chat interface screenshot
+│   │   ├── login.png                 # Login page screenshot
+│   │   ├── settings.png              # Settings page screenshot
+│   │   └── logout.png                # Logout screenshot
+│   │
 │   ├── src/
-│   │   ├── components/
-│   │   │   ├── AuthImagePattern.jsx    # Auth page decoration
-│   │   │   ├── ChatContainer.jsx       # Main chat interface
-│   │   │   ├── ChatHeader.jsx          # Chat header
-│   │   │   ├── MessageInput.jsx        # Message input box
-│   │   │   ├── Navbar.jsx              # Navigation bar
-│   │   │   ├── NoChatSelected.jsx      # Empty state
-│   │   │   ├── Sidebar.jsx             # User list sidebar
-│   │   │   └── skeletons/              # Loading skeletons
-│   │   ├── constants/
-│   │   │   └── index.js                # App constants
-│   │   ├── lib/
-│   │   │   ├── axios.js                # Axios configuration
-│   │   │   └── utils.js                # Utility functions
-│   │   ├── pages/
-│   │   │   ├── HomePage.jsx            # Main chat page
-│   │   │   ├── LoginPage.jsx           # Login page
-│   │   │   ├── ProfilePage.jsx         # User profile
-│   │   │   ├── SettingsPage.jsx        # Theme settings
-│   │   │   └── SignUpPage.jsx          # Registration page
-│   │   ├── store/
-│   │   │   ├── useAuthStore.js         # Auth state management
-│   │   │   ├── useChatStore.js         # Chat state management
-│   │   │   └── useThemeStore.js        # Theme state management
-│   │   ├── App.jsx                     # App component
-│   │   ├── main.jsx                    # App entry point
-│   │   └── index.css                   # Global styles
-│   ├── Dockerfile                      # Frontend Docker config
-│   ├── Dockerfile.dev                  # Dev Docker config
-│   ├── nginx.conf                      # Nginx configuration
-│   ├── package.json                    # Frontend dependencies
-│   ├── vite.config.js                  # Vite configuration
-│   ├── tailwind.config.js              # Tailwind configuration
-│   └── index.html                      # HTML template
+│   │   ├── components/               # Reusable components
+│   │   │   ├── AuthImagePattern.jsx  # Auth page decorative pattern
+│   │   │   ├── ChatContainer.jsx     # Main chat interface
+│   │   │   ├── ChatHeader.jsx        # Chat header with user info
+│   │   │   ├── MessageInput.jsx      # Message input box
+│   │   │   ├── Navbar.jsx            # Top navigation bar
+│   │   │   ├── NoChatSelected.jsx    # Empty state placeholder
+│   │   │   ├── Sidebar.jsx           # User list sidebar
+│   │   │   └── skeletons/            # Loading skeletons
+│   │   │       ├── MessageSkeleton.jsx
+│   │   │       └── SidebarSkeleton.jsx
+│   │   │
+│   │   ├── constants/                # App constants
+│   │   │   └── index.js              # Theme list, etc.
+│   │   │
+│   │   ├── lib/                      # Utility libraries
+│   │   │   ├── axios.js              # Axios instance with config
+│   │   │   └── utils.js              # Helper functions
+│   │   │
+│   │   ├── pages/                    # Page components
+│   │   │   ├── HomePage.jsx          # Main chat page
+│   │   │   ├── LoginPage.jsx         # Login page
+│   │   │   ├── ProfilePage.jsx       # User profile page
+│   │   │   ├── SettingsPage.jsx      # Theme settings page
+│   │   │   └── SignUpPage.jsx        # Registration page
+│   │   │
+│   │   ├── store/                    # Zustand state stores
+│   │   │   ├── useAuthStore.js       # Auth state management
+│   │   │   ├── useChatStore.js       # Chat state management
+│   │   │   └── useThemeStore.js      # Theme state management
+│   │   │
+│   │   ├── App.jsx                   # Root component with routing
+│   │   ├── main.jsx                  # App entry point
+│   │   └── index.css                 # Global styles & Tailwind imports
+│   │
+│   ├── Dockerfile                    # Production Docker config
+│   ├── Dockerfile.dev                # Development Docker config
+│   ├── nginx.conf                    # Nginx server configuration
+│   ├── package.json                  # Frontend dependencies
+│   ├── vite.config.js                # Vite configuration
+│   ├── tailwind.config.js            # Tailwind CSS configuration
+│   ├── postcss.config.js             # PostCSS configuration
+│   ├── eslint.config.js              # ESLint configuration
+│   └── index.html                    # HTML template
 │
-├── k8s/                                # Kubernetes manifests
-│   ├── backend-deployment.yaml
-│   ├── frontend-deployment.yaml
-│   ├── mongodb-deployment.yaml
-│   └── ...
+├── k8s/                              # Kubernetes manifests
+│   ├── namespace.yaml                # K8s namespace
+│   ├── backend-deployment.yaml       # Backend deployment
+│   ├── backend-service.yaml          # Backend service
+│   ├── backend-secrets.yaml          # Backend secrets
+│   ├── frontend-deployment.yaml      # Frontend deployment
+│   ├── frontend-service.yaml         # Frontend service
+│   ├── frontend-configmap.yaml       # Frontend config
+│   ├── mongodb-deployment.yaml       # MongoDB deployment
+│   ├── mongodb-service.yaml          # MongoDB service
+│   ├── mongo-pvc.yaml                # Persistent volume claim
+│   ├── kind-config.yaml              # Kind cluster config
+│   └── README.md                     # K8s deployment guide
 │
-├── docker-compose.yml                  # Production compose
-├── docker-compose.dev.yml              # Development compose
-├── .env                                # Environment variables
-├── .gitignore                          # Git ignore rules
-├── package.json                        # Root package.json
-├── README.md                           # This file
-└── LICENSE                             # MIT License
+├── docker-compose.yml                # Production Docker Compose
+├── docker-compose.dev.yml            # Development Docker Compose
+├── Jenkinsfile                       # Jenkins CI/CD pipeline
+├── .env                              # Environment variables (create this)
+├── .gitignore                        # Git ignore rules
+├── package.json                      # Root package.json
+├── LICENSE                           # MIT License
+└── README.md                         # This file
 ```
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions from developers of all skill levels! Here's how you can contribute:
+We welcome contributions from developers of all experience levels! Whether you're fixing bugs, adding features, or improving documentation, your help is appreciated.
 
-### Ways to Contribute
+### 🌟 Ways to Contribute
 
-1. **Report Bugs**: Open an issue with detailed information
-2. **Suggest Features**: Share your ideas for new features
-3. **Submit Pull Requests**: Contribute code improvements
-4. **Improve Documentation**: Help make our docs better
-5. **Share Feedback**: Let us know how we can improve
+1. **🐛 Report Bugs** - Open an issue with reproduction steps
+2. **💡 Suggest Features** - Share your ideas for improvements
+3. **🔧 Submit Pull Requests** - Contribute code improvements
+4. **📚 Improve Documentation** - Help make our docs better
+5. **⭐ Star the Repository** - Show your support
+6. **🔄 Share the Project** - Spread the word
 
-### Development Workflow
+### 🔄 Development Workflow
 
 1. **Fork the repository**
-2. **Create a feature branch**:
    ```bash
-   git checkout -b feature/amazing-feature
+   # Click the "Fork" button on GitHub
    ```
-3. **Make your changes**
-4. **Commit your changes**:
+
+2. **Clone your fork**
    ```bash
-   git commit -m 'Add some amazing feature'
+   git clone https://github.com/YOUR_USERNAME/LetsChat-FullStack-ChatApp.git
+   cd LetsChat-FullStack-ChatApp
    ```
-5. **Push to the branch**:
+
+3. **Create a feature branch**
    ```bash
-   git push origin feature/amazing-feature
+   git checkout -b feature/amazing-new-feature
    ```
-6. **Open a Pull Request**
 
-### Code Style Guidelines
+4. **Make your changes**
+   - Write clean, readable code
+   - Follow existing code style
+   - Add comments for complex logic
+   - Test thoroughly
 
-- Follow the existing code style
-- Use meaningful variable and function names
-- Add comments for complex logic
-- Write clean, readable code
-- Test your changes thoroughly
+5. **Commit your changes**
+   ```bash
+   git add .
+   git commit -m "Add: Amazing new feature"
+   ```
 
-### Commit Message Guidelines
+6. **Push to your fork**
+   ```bash
+   git push origin feature/amazing-new-feature
+   ```
 
-- Use present tense ("Add feature" not "Added feature")
-- Use imperative mood ("Move cursor to..." not "Moves cursor to...")
-- Limit the first line to 72 characters
-- Reference issues and pull requests
+7. **Open a Pull Request**
+   - Go to the original repository on GitHub
+   - Click "New Pull Request"
+   - Select your branch
+   - Describe your changes in detail
+
+### 📝 Commit Message Guidelines
+
+Follow these conventions for clear commit history:
+
+- `Add:` - New feature or functionality
+- `Fix:` - Bug fix
+- `Update:` - Update existing feature
+- `Remove:` - Remove code or files
+- `Refactor:` - Code refactoring
+- `Docs:` - Documentation changes
+- `Style:` - Code style changes (formatting)
+- `Test:` - Adding or updating tests
+
+**Examples:**
+```bash
+Add: Real-time typing indicators
+Fix: Message edit time limit validation
+Update: User profile page UI
+Docs: Add API endpoint documentation
+```
+
+### 🎨 Code Style Guidelines
+
+- **JavaScript**: Follow existing ESLint configuration
+- **React**: Use functional components with hooks
+- **State Management**: Use Zustand for global state
+- **CSS**: Use Tailwind utility classes
+- **Naming**: Use camelCase for variables, PascalCase for components
+- **Comments**: Add comments for complex logic
+- **File Structure**: Keep related code together
 
 ---
 
 ## 🔮 Roadmap
 
-### Upcoming Features
+### 🎯 Upcoming Features
 
-- [ ] **Group Chat**: Create and manage group conversations
-- [ ] **Voice Messages**: Send voice recordings
-- [ ] **Video Calls**: One-on-one video calling
-- [ ] **File Sharing**: Share documents and files
-- [ ] **Message Search**: Search through message history
-- [ ] **Emoji Reactions**: React to messages with emojis
-- [ ] **Message Forwarding**: Forward messages to other chats
-- [ ] **User Blocking**: Block unwanted users
-- [ ] **Push Notifications**: Browser push notifications
-- [ ] **Read Receipts**: See when messages are read
-- [ ] **Message Pinning**: Pin important messages
-- [ ] **Dark/Light Theme Toggle**: Switch between themes
-- [ ] **Multi-language Support**: Internationalization
-- [ ] **End-to-End Encryption**: Secure message encryption
-- [ ] **Message Backup**: Export chat history
-- [ ] **Custom Themes**: Create custom color themes
+#### Phase 1: Enhanced Messaging
+- [ ] **Group Chat** - Create and manage group conversations
+- [ ] **Voice Messages** - Record and send voice messages
+- [ ] **File Sharing** - Share documents and files (PDF, DOCX, etc.)
+- [ ] **Message Search** - Search through message history
+- [ ] **Emoji Reactions** - React to messages with emojis
+- [ ] **Message Forwarding** - Forward messages to other chats
+- [ ] **Message Pinning** - Pin important messages in chat
 
-### Infrastructure Improvements
+#### Phase 2: User Experience
+- [ ] **User Blocking** - Block unwanted users
+- [ ] **Push Notifications** - Browser push notifications
+- [ ] **Enhanced Read Receipts** - See when messages are read
+- [ ] **Dark/Light Theme Toggle** - Manual theme switching
+- [ ] **Multi-language Support** - Internationalization (i18n)
+- [ ] **User Status Messages** - Custom status messages
+- [ ] **Last Seen Timestamp** - Show when user was last online
 
-- [ ] **CI/CD Pipeline**: Automated testing and deployment
-- [ ] **Kubernetes Deployment**: Production-ready K8s setup
-- [ ] **Monitoring**: Application performance monitoring
-- [ ] **Logging**: Centralized logging system
-- [ ] **Rate Limiting**: API rate limiting
-- [ ] **Caching**: Redis caching layer
-- [ ] **CDN Integration**: Static asset delivery
-- [ ] **Database Optimization**: Query optimization and indexing
+#### Phase 3: Media & Rich Content
+- [ ] **Video Calls** - One-on-one video calling
+- [ ] **Voice Calls** - Audio-only calling
+- [ ] **GIF Support** - Integrated GIF picker
+- [ ] **Stickers** - Custom sticker packs
+- [ ] **Link Previews** - Rich previews for shared links
+- [ ] **Code Snippets** - Syntax-highlighted code blocks
+
+#### Phase 4: Security & Privacy
+- [ ] **End-to-End Encryption** - Message encryption
+- [ ] **Two-Factor Authentication** - Enhanced security
+- [ ] **Message Backup** - Export chat history
+- [ ] **Self-Destructing Messages** - Temporary messages
+- [ ] **Screenshot Detection** - Notify when screenshots taken
+- [ ] **Privacy Settings** - Granular privacy controls
+
+#### Phase 5: Advanced Features
+- [ ] **Custom Themes** - User-created color themes
+- [ ] **Chatbots** - Integrate AI chatbots
+- [ ] **Message Scheduling** - Schedule messages for later
+- [ ] **Polls & Surveys** - Create interactive polls
+- [ ] **Location Sharing** - Share location in chat
+- [ ] **Contact Sharing** - Share contacts
+
+### 🏗️ Infrastructure Improvements
+
+- [ ] **CI/CD Pipeline** - Automated testing and deployment with GitHub Actions
+- [ ] **Kubernetes Production** - Full K8s deployment with monitoring
+- [ ] **Redis Caching** - Cache layer for improved performance
+- [ ] **Rate Limiting** - API rate limiting with Redis
+- [ ] **CDN Integration** - CloudFront or similar for static assets
+- [ ] **Database Indexing** - Optimize MongoDB queries
+- [ ] **Monitoring** - Prometheus + Grafana monitoring
+- [ ] **Logging** - Centralized logging with ELK stack
+- [ ] **Load Balancing** - Nginx load balancer for horizontal scaling
+- [ ] **Auto-Scaling** - Kubernetes HPA for dynamic scaling
 
 ---
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
 ```
 MIT License
@@ -846,200 +1142,65 @@ SOFTWARE.
 
 ---
 
-## 📞 Support
+## 📞 Support & Community
 
-### Get Help
+### 🆘 Get Help
 
-- **Documentation**: Read this README thoroughly
-- **Issues**: [GitHub Issues](https://github.com/yourusername/LetsChat/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/LetsChat/discussions)
+- **📖 Documentation** - Read this README thoroughly
+- **🐛 Issues** - [GitHub Issues](https://github.com/yourusername/LetsChat-FullStack-ChatApp/issues)
+- **💬 Discussions** - [GitHub Discussions](https://github.com/yourusername/LetsChat-FullStack-ChatApp/discussions)
+- **📧 Email** - contact@letschat.com
 
-### Community
+### 🌐 Community
 
-- **Star this repository** ⭐ to show your support
-- **Fork this repository** 🍴 to contribute
-- **Share** 📢 with your network
+- **⭐ Star this repository** to show your support
+- **🍴 Fork this repository** to contribute
+- **📢 Share** with your network
+- **🐦 Follow** us on social media
 
 ---
 
 ## 🙏 Acknowledgments
 
-- [React](https://reactjs.org/) - UI library
-- [Node.js](https://nodejs.org/) - JavaScript runtime
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Socket.io](https://socket.io/) - Real-time engine
-- [TailwindCSS](https://tailwindcss.com/) - CSS framework
-- [DaisyUI](https://daisyui.com/) - Component library
-- [Vite](https://vitejs.dev/) - Build tool
-- [Docker](https://www.docker.com/) - Containerization
+This project was built using amazing open-source technologies:
+
+- [React](https://reactjs.org/) - A JavaScript library for building user interfaces
+- [Node.js](https://nodejs.org/) - JavaScript runtime built on Chrome's V8 engine
+- [Express](https://expressjs.com/) - Fast, unopinionated web framework for Node.js
+- [MongoDB](https://www.mongodb.com/) - The most popular NoSQL database
+- [Socket.io](https://socket.io/) - Realtime application framework
+- [TailwindCSS](https://tailwindcss.com/) - A utility-first CSS framework
+- [DaisyUI](https://daisyui.com/) - The most popular Tailwind CSS component library
+- [Zustand](https://github.com/pmndrs/zustand) - Bear necessities for state management
+- [Vite](https://vitejs.dev/) - Next generation frontend tooling
+- [Docker](https://www.docker.com/) - Accelerated container application development
+
+Special thanks to all contributors and the open-source community! 🎉
 
 ---
 
-## 📸 Screenshots
-
-### Login & Authentication
-<div align="center">
-  <img src="frontend/public/login.png" alt="Login Page" width="800"/>
-  <p><em>Secure login interface with email and password authentication</em></p>
-</div>
-
----
-
-### Main Chat Interface
-<div align="center">
-  <img src="frontend/public/chat.png" alt="Chat Interface" width="800"/>
-  <p><em>Real-time messaging with typing indicators and message management</em></p>
-</div>
-
-**Key Features Shown:**
-- ✅ Real-time messaging
-- ✅ Typing indicators ("typing..." animation)
-- ✅ Message editing (edited label)
-- ✅ Online status indicators
-- ✅ User list sidebar
-- ✅ Message timestamps
-- ✅ Profile pictures
-
----
-
-### Theme Customization
-<div align="center">
-  <img src="frontend/public/settings.png" alt="Settings Page" width="800"/>
-  <p><em>Choose from 32 beautiful themes to customize your chat experience</em></p>
-</div>
-
-**Available Themes:**
-- Light, Dark, Cupcake, Bumblebee
-- Emerald, Corporate, Synthwave, Retro
-- Cyberpunk, Valentine, Halloween, Garden
-- Forest, Aqua, Lofi, Pastel
-- Fantasy, Wireframe, Black, Luxury
-- Dracula, Cmyk, Autumn, Business
-- Acid, Lemonade, Night, Coffee
-- Winter, Dim, Nord, Sunset
-
----
-
-### User Profile Management
-<div align="center">
-  <img src="frontend/public/acess.png" alt="Profile Page" width="800"/>
-  <p><em>Manage your profile information and upload profile pictures</em></p>
-</div>
-
-**Profile Features:**
-- ✅ Profile picture upload
-- ✅ Full name display
-- ✅ Email address
-- ✅ Account creation date
-- ✅ Account status
-- ✅ Easy photo updates
-
----
-
-### Additional Screenshots
-
-#### Logout Functionality
-<div align="center">
-  <img src="frontend/public/logout.png" alt="Logout" width="800"/>
-  <p><em>Secure logout with session termination</em></p>
-</div>
-
----
-
-### Feature Highlights
-
-<table>
-  <tr>
-    <td width="50%">
-      <h4>🔐 Secure Authentication</h4>
-      <ul>
-        <li>JWT-based authentication</li>
-        <li>Secure password hashing</li>
-        <li>Session management</li>
-        <li>Protected routes</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>💬 Real-Time Messaging</h4>
-      <ul>
-        <li>Instant message delivery</li>
-        <li>WebSocket connection</li>
-        <li>Typing indicators</li>
-        <li>Online status</li>
-      </ul>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%">
-      <h4>✏️ Message Management</h4>
-      <ul>
-        <li>Edit messages (24h limit)</li>
-        <li>Delete messages</li>
-        <li>Message history</li>
-        <li>Image sharing</li>
-      </ul>
-    </td>
-    <td width="50%">
-      <h4>🎨 Beautiful UI/UX</h4>
-      <ul>
-        <li>32 themes available</li>
-        <li>Responsive design</li>
-        <li>Smooth animations</li>
-        <li>Modern interface</li>
-      </ul>
-    </td>
-  </tr>
-</table>
-
----
-
-### Technology Stack Visualization
-
-```
-Frontend Stack          Backend Stack           Database & Tools
-┌─────────────┐        ┌─────────────┐        ┌─────────────┐
-│   React 18  │        │  Node.js    │        │  MongoDB    │
-│   Zustand   │───────▶│  Express.js │───────▶│  Mongoose   │
-│  Socket.io  │        │  Socket.io  │        │             │
-│  TailwindCSS│        │  JWT Auth   │        │  Docker     │
-│   DaisyUI   │        │  bcryptjs   │        │  Nginx      │
-└─────────────┘        └─────────────┘        └─────────────┘
-```
-
----
-
-### Performance Metrics
+## 📊 Performance Metrics
 
 - ⚡ **Real-time Latency**: < 100ms message delivery
-- 🚀 **Page Load Time**: < 2 seconds
+- 🚀 **Page Load Time**: < 2 seconds (with CDN)
 - 📱 **Mobile Responsive**: 100% responsive design
-- 🔒 **Security Score**: A+ (JWT + HTTPS)
+- 🔒 **Security Score**: A+ (JWT + HTTPS ready)
 - 🎨 **Lighthouse Score**: 95+ performance
-- ♿ **Accessibility**: WCAG 2.1 compliant
+- ♿ **Accessibility**: WCAG 2.1 Level AA compliant
 
 ---
 
-### Browser Support
+## 🌐 Browser Support
 
 | Browser | Version | Support |
 |---------|---------|---------|
-| Chrome  | 90+     | ✅ Full |
-| Firefox | 88+     | ✅ Full |
-| Safari  | 14+     | ✅ Full |
-| Edge    | 90+     | ✅ Full |
-| Opera   | 76+     | ✅ Full |
-
----
-
-### Mobile Screenshots
-
-<div align="center">
-  <p><em>Fully responsive design works seamlessly on all devices</em></p>
-  
-  📱 **Mobile** | 📱 **Tablet** | 💻 **Desktop**
-  
-  All features available across all screen sizes
-</div>
+| Chrome  | 90+     | ✅ Full Support |
+| Firefox | 88+     | ✅ Full Support |
+| Safari  | 14+     | ✅ Full Support |
+| Edge    | 90+     | ✅ Full Support |
+| Opera   | 76+     | ✅ Full Support |
+| Mobile Safari | 14+ | ✅ Full Support |
+| Chrome Mobile | 90+ | ✅ Full Support |
 
 ---
 
@@ -1050,8 +1211,8 @@ Frontend Stack          Backend Stack           Database & Tools
 **Clone the repository and start chatting in minutes!**
 
 ```bash
-git clone https://github.com/yourusername/LetsChat.git
-cd LetsChat
+git clone https://github.com/yourusername/LetsChat-FullStack-ChatApp.git
+cd LetsChat-FullStack-ChatApp
 docker compose up -d --build
 ```
 
@@ -1063,12 +1224,14 @@ docker compose up -d --build
 
 ### 🍴 Fork it to create your own version!
 
-### 📢 Share it with your network!
+### 📢 Share it with your developer community!
 
 ---
 
 **Made with ❤️ by the LetsChat Team**
 
-[⬆ Back to Top](#letschat---real-time-messaging-application)
+*Building the future of real-time communication*
+
+[⬆ Back to Top](#-letschat---full-stack-real-time-chat-application)
 
 </div>
