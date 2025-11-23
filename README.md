@@ -245,27 +245,27 @@ This project is licensed under the MIT License.
 
 ## 📸 Screenshots
 
-### Login Page
-![Login Page](frontend/public/login.png)
-*Secure authentication with email and password*
+### 1. Login Page
+![Login Page](tmp/Screenshot%20from%202025-11-24%2000-28-52.png)
+*Secure authentication with email and password. Clean and modern UI design with form validation.*
 
 ---
 
-### Chat Interface
-![Chat Interface](frontend/public/chat.png)
-*Real-time messaging with typing indicators, message editing, and online status*
+### 2. Profile Management
+![Profile Page](tmp/Screenshot%20from%202025-11-24%2000-29-04.png)
+*Manage your profile information and update your profile picture. View account details and member status.*
 
 ---
 
-### Settings Page
-![Settings Page](frontend/public/settings.png)
-*Customize your experience with 32 beautiful themes*
+### 3. Theme Customization
+![Settings Page](tmp/Screenshot%20from%202025-11-24%2000-29-26.png)
+*Choose from 32 beautiful themes with live preview. Customize your chat experience with one click.*
 
 ---
 
-### Profile Page
-![Profile Page](frontend/public/acess.png)
-*Manage your profile and update your profile picture*
+### 4. Real-Time Chat Interface
+![Chat Interface](tmp/Screenshot%20from%202025-11-24%2000-30-07.png)
+*Real-time messaging with typing indicators ("typing..." bubble), message editing (edited label), online status (green dot), and instant message delivery. Features include edit/delete message options and smooth user experience.*
 
 ---
 
